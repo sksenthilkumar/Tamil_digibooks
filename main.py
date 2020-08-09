@@ -91,9 +91,13 @@ def combine_pdf(folder: str, output_file_name='combined'):
 def main():
     image_filename_search = f"{args.images_folder}/*.{args.images_extension}"
     image_files = glob.glob(image_filename_search)
+    print(f"Found {len(image_files)} {args.images_extension} images in {args.images_folder}")
     pdfs_saved_path = convert_images_and_save(image_files, pathlib.Path(args.output_folder), output_file_format='pdf')
+    print(f'PDF equivalent of images saved in {pdfs_saved_path}')
     final_pdf = combine_pdf(pdfs_saved_path)
+    print(f'Final single searchable pdf is saved at {final_pdf}')
     txts_saved_path = convert_images_and_save(image_files, pathlib.Path(args.output_folder), output_file_format='txt')
+    print(f"The text extracted from images are saved at {txts_saved_path}")
 
 
 if __name__ == '__main__':
