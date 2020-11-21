@@ -1,3 +1,10 @@
-pytesseract~=0.3.4
+# pytesseract~=0.3.4
+# Pillow~=7.1.2
+# PyPDF2~=1.26.0
+
+Open-Tamil==0.97
 Pillow~=7.1.2
-PyPDF2~=1.26.0
+pyocr==0.7.2
+PyPDF2==1.26.0
+pytesseract==0.3.4
+tqdm~=4.52.0
