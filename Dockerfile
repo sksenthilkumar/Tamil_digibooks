@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update
-RUN apt-get install -y python3.8 python3-pip
+RUN apt-get install -y python3.8 python3-pip unzip
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 RUN ln -s /usr/bin/python3.8 /usr/bin/python
 RUN apt-get install -y tesseract-ocr libtesseract-dev tesseract-ocr-tam

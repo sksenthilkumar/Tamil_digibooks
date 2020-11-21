@@ -6,8 +6,9 @@ import create_pdf_from_folder
 
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--source_dir", required=True)
-ap.add_argument("--output_dir", required=False)
+ap.add_argument("--source_dir", default='/input_folder')
+ap.add_argument("--output_dir", default='/output_folder')
+ap.add_argument("--zipped", action='store_true')
 
 
 def create_new_output_folder(input_folder, output_dir):
@@ -17,10 +18,13 @@ def create_new_output_folder(input_folder, output_dir):
     return str(op_dir)
 
 
-def process_source_dir(source_dir, output_dir):
-    unzipped_folders = prepare.unzip_files_in_a_dir(source_dir)
+def process_source_dir(source_dir, output_dir, zipped_folder):
+    if zipped_folder:
+        folders = prepare.unzip_files_in_a_dir(source_dir)
+    else:
+        folders = prepare.get_sub_folders(source_dir)
 
-    for folder in unzipped_folders:
+    for folder in folders:
         f = pathlib.Path(folder)
         images_folder = f.joinpath(f.stem)
         output_folder = create_new_output_folder(images_folder, output_dir)
@@ -33,4 +37,4 @@ if __name__ == '__main__':
         output_dir = args.source_dir
     else:
         output_dir = args.output_dir
-    process_source_dir(args.source_dir, output_dir)
+    process_source_dir(args.source_dir, output_dir, args.zipped)

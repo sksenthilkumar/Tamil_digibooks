@@ -6,6 +6,11 @@ from tqdm import tqdm
 from subprocess import Popen, PIPE
 
 
+def get_sub_folders(path):
+    fo = f"{path}/*"
+    return glob.glob(fo)
+
+
 def get_zip_files(path):
     fo = f"{path}/*.zip"
     return glob.glob(fo)

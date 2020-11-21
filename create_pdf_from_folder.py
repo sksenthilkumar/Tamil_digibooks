@@ -7,8 +7,8 @@ from PIL import Image
 from tqdm import tqdm
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--images_folder", help="Path to folder with images")
-ap.add_argument("--output_folder", help="Path to save the output files")
+ap.add_argument("--images_folder", default='/input_folder', help="Path to folder with images")
+ap.add_argument("--output_folder", default='/output_folder', help="Path to save the output files")
 ap.add_argument("--images_extension", default='jpg', help="extension of images eg. jpg")
 
 
